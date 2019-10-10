@@ -56,62 +56,49 @@ void main()
 }
 
 int val(char m[][3], int x, int o, int p){
-	char ch=venc(m,x,o,p);
-	/*if(ch == 'X' || ch == '0'){
-		printf("%c\n", ch); // jogo acabou: alguém venceu
-	}*/
 	if(abs(x-o)<=1){
 		return 1;
 	}
 	else{
-		if(venc(m,x,o,p) == 'X' && venc(m,x,o,p) == '0' || o > x){
-			printf("Inválido\n");
-			return 0;
-		}
+		if(p==0)
+			venc(m,x,o,p);
 	}
-		
 }
 
 char venc(char m[][3], int x, int o, int p){
 	if(m[0][0]==m[0][1] && m[0][1]==m[0][2]){
-		printf("1\n");
 		return m[0][0];
 	}
 		
 	else if(m[1][0]==m[1][1] && m[1][1]==m[1][2]){
-			printf("2\n");
 		return m[1][0];
 	}
 	
 	else if(m[2][0]==m[2][1] && m[2][1]==m[2][2]){
-		printf("3\n");
 		return m[2][0];
 	}
 	
 	else if(m[0][0]==m[1][0] && m[1][0]==m[2][0]){
-			printf("4\n");
 		return m[0][0];
 	}
 	
 	else if(m[0][1]==m[1][1] && m[1][1]==m[2][1]){
-		printf("5\n");
 		return m[0][1];
 	}
 	
 	else if(m[0][2]==m[1][2] && m[1][2]==m[2][2]){
-			printf("6\n");
 		return m[0][2];
 	}
 	
 	else if(m[0][0] == m[1][1] && m[1][1] == m[2][2] || m[0][2]==m[1][1] && m[1][1]==m[2][0]){
-		printf("7\n");
 		return m[1][1];
 	}
 	
 	else{
-			printf("8\n");
 		if(p==0 && o<=x)
 			return '.';
+		else
+			printf("Inválido");
 	}
 	
 }
